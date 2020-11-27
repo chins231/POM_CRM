@@ -1,6 +1,7 @@
 package com.crm.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -29,7 +30,8 @@ public class ContactsPage extends BaseClass {
 	WebElement EmailId;
 	@FindBy (xpath="//i[@class='save icon' ]")
 	WebElement saveContact;
-	
+	@FindBy(xpath=("//div[contains (@class,'main-content')]/table/tbody/tr"))
+	WebElement tableContent;
 	
 	public ContactsPage()
 	{
@@ -56,6 +58,12 @@ public class ContactsPage extends BaseClass {
 	{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='New']")));
 		return newContact.isDisplayed();
+	}
+	
+	public void getTableData()
+	{
+		Dimension rows= tableContent.getSize();
+		System.out.println(rows);
 	}
 
 }

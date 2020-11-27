@@ -41,6 +41,11 @@ public class TestContactsPage extends BaseClass{
 		 System.out.println("Saved Contact is : "+name);
 		 Assert.assertEquals("chins chins", name);
 	 }
+	 @Test(priority=3)
+	 public void checkContacts()
+	 {
+		 cp.getTableData();
+	 }
     @AfterMethod
     public void exitMethod()
     {
